@@ -6,6 +6,7 @@
 package universidad;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -15,26 +16,44 @@ public class Universidad {
 
     ArrayList<Curso> cursos;
     ArrayList<Profesor> profesores;
-    
+    ArrayList<Estudiante> estudiantes;
     
     public Universidad(){
       cursos = new ArrayList<>();  
       profesores = new ArrayList<>();
+      estudiantes = new ArrayList<>();
     }
     
     public void agregarProfesor(){
-        Profesor p1 = new Profesor(1);
+        Scanner sc = new Scanner(System.in);   
+        System.out.println("Escriba código del profesor");
+        int cod = sc.nextInt();
+        Profesor p1 = new Profesor(cod);
         profesores.add(p1);
     }
     
     public void agregarCurso(){
-        Curso c = new Curso(10);
+        Scanner sc = new Scanner(System.in);   
+        System.out.println("Escriba nrc del curso");
+        int nrc = sc.nextInt();
+        Curso c = new Curso(nrc);
         cursos.add(c);
     }
     
+    public void agregarEstudiante() {
+        Scanner sc = new Scanner(System.in);   
+        System.out.println("Escriba id del estudiante");
+        int id = sc.nextInt();
+      Estudiante e1 = new Estudiante(id);
+      estudiantes.add(e1);
+    }
     public void registrarProfesorCurso(Profesor p, Curso c){
        p.cursos.add(c);
        c.setProfesor(p);
+    }
+    public void registrarEstudianteCurso (Estudiante e, Curso c) {
+        e.cursos.add(c);
+        c.setEstudiante(e);
     }
     
     
@@ -42,7 +61,20 @@ public class Universidad {
     
     
     public static void main(String[] args) {
-        // TODO code application logic here
+      int sw=0;
+       Scanner sc = new Scanner(System.in);
+       
+            System.out.println("1 para agregar profesor");
+             System.out.println("2 para agregar estudiante");
+            System.out.println("3 para agregar curso");         
+            System.out.println("4 para asignar profesor a curso");
+            System.out.println("5 para asignar estudiante a curso");
+            System.out.println("6 Cuantos cursos tiene cada profesor");
+            System.out.println("7 Cuantos cursos tiene cada estudiante");
+            System.out.println("8 Salir");
+      switch (sw)   {
+          
+      }
     }
     
 }
